@@ -1,0 +1,14 @@
+
+server:
+  port: 8090
+
+spring:
+  application:
+    name: cart-service
+  datasource:
+    url: jdbc:mysql://localhost/marketplace_order
+    username: ${username}
+    password: ${password}
+  jpa:
+    hibernate:
+      ddl-auto: update
