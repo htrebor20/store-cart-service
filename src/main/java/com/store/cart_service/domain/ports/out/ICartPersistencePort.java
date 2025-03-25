@@ -1,4 +1,7 @@
 package com.store.cart_service.domain.ports.out;
 
-public class ICartPersistencePort {
+import com.store.cart_service.domain.model.Cart;
+
+public interface ICartPersistencePort {
+    Cart buyProduct(Cart cart);
 }
