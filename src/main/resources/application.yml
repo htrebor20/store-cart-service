@@ -6,7 +6,7 @@ spring:
   application:
     name: cart-service
   datasource:
-    url: jdbc:mysql://localhost/marketplace_order
+    url: jdbc:mysql://localhost/marketplace_cart
     username: ${username}
     password: ${password}
   jpa:

@@ -1,47 +1,20 @@
 package com.store.cart_service.domain.model;
 
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+
+import java.util.List;
+@Getter
+@Setter
+@AllArgsConstructor
+@NoArgsConstructor
+
 public class Cart {
     private Long orderId;
     private String email;
-    private Long idProduct;
-    private Integer quantity;
+    private List<ProductItem> products;
+    private OrderStatus orderStatus;
 
-    public Cart(Long orderId, String email, Long idProduct, Integer quantity) {
-        this.orderId = orderId;
-        this.email = email;
-        this.idProduct = idProduct;
-        this.quantity = quantity;
-    }
-
-    public Long getOrderId() {
-        return orderId;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public Long getIdProduct() {
-        return idProduct;
-    }
-
-    public Integer getQuantity() {
-        return quantity;
-    }
-
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public void setIdProduct(Long idProduct) {
-        this.idProduct = idProduct;
-    }
-
-    public void setQuantity(Integer quantity) {
-        this.quantity = quantity;
-    }
 }
