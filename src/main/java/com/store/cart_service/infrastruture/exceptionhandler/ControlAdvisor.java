@@ -2,6 +2,7 @@ package com.store.cart_service.infrastruture.exceptionhandler;
 
 import com.store.cart_service.domain.exception.BadRequestValidationException;
 import com.store.cart_service.domain.exception.ExternalServiceException;
+import com.store.cart_service.domain.exception.NotFoundException;
 import com.store.cart_service.domain.exception.ServiceUnavailableException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
@@ -58,4 +59,14 @@ public class ControlAdvisor {
                 LocalDateTime.now()
         ));
     }
+
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<ExceptionResponse> handleNotFoundException(NotFoundException ex) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ExceptionResponse(
+                ex.getMessage(),
+                HttpStatus.NOT_FOUND.toString(),
+                LocalDateTime.now()
+        ));
+    }
+
 }

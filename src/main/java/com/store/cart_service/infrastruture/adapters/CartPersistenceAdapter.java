@@ -1,5 +1,7 @@
 package com.store.cart_service.infrastruture.adapters;
 
+import com.store.cart_service.application.constants.ErrorMessages;
+import com.store.cart_service.domain.exception.NotFoundException;
 import com.store.cart_service.domain.model.Cart;
 import com.store.cart_service.domain.ports.out.ICartPersistencePort;
 import com.store.cart_service.infrastruture.entities.CartEntity;
@@ -18,5 +20,13 @@ public class CartPersistenceAdapter implements ICartPersistencePort {
         cartEntity.getCartProducts().forEach(cartProduct -> cartProduct.setCart(cartEntity));
         CartEntity save = cartRepository.save(cartEntity);
         return cartEntityMapper.toModel(save);
+    }
+
+    @Override
+    public Cart getCart(Long id) {
+        CartEntity cartEntity = cartRepository.findById(id)
+                .orElseThrow(() -> new NotFoundException(ErrorMessages.getCartNotFoundMessage(id)));
+
+        return cartEntityMapper.toModel(cartEntity);
     }
 }
