@@ -4,4 +4,5 @@ import com.store.cart_service.domain.model.Cart;
 
 public interface ICartPersistencePort {
     Cart buyProduct(Cart cart);
+    Cart getCart (Long id);
 }

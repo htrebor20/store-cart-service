@@ -38,6 +38,11 @@ public class CartUseCase implements ICartServicePort {
         }
     }
 
+    @Override
+    public Cart getCart(Long id) {
+        return cartPersistencePort.getCart(id);
+    }
+
     private void validateUser(Cart cart) {
         try {
             ResponseEntity<User> userClient = userFeignClient.findUserById(cart.getEmail());
